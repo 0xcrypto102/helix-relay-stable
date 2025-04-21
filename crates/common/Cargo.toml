@@ -1,0 +1,42 @@
+[package]
+name = "helix-common"
+version.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[dependencies]
+helix-utils.workspace = true
+
+# Networking 
+axum.workspace = true
+reqwest.workspace = true
+
+# Serialization and Data Format 
+serde.workspace = true
+serde_json.workspace = true
+serde_yaml = "0.9.25"
+
+# Ethereum Types
+ethereum-consensus.workspace = true
+reth-primitives.workspace = true
+
+# DB
+deadpool-redis.workspace = true
+redis.workspace = true
+tokio.workspace = true
+tokio-postgres.workspace = true
+
+# Misc
+auto_impl.workspace = true
+clap = { version = "4.3", features = ["derive"] }
+thiserror.workspace = true
+tracing.workspace = true
+ssz_rs = {git = "https://github.com/ralexstokes/ssz-rs", rev = "1df4cd9", features = ["sha2-asm"]}
+sha2 = "0.10.8"
+tree_hash = "0.6.0"
+
+[dev-dependencies]
+tree_hash = "0.6.0"
+tree_hash_derive = "0.6.0"

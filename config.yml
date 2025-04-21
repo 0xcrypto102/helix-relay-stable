@@ -1,0 +1,48 @@
+postgres:
+  hostname: "188.245.207.191"
+  port: 32791  # Default PostgreSQL port
+  db_name: "helixdb"
+  user: "postgres"
+  password: "postgres"
+  region: 0  # Keeping default value
+  region_name: "bolt"  # Keeping default value
+
+redis:
+  url: "redis://188.245.207.191:32790"
+
+network_config: 
+  !Custom
+    dir_path: ./network-config.yaml
+    genesis_validator_root: 0xa55f9089402f027c67db4a43b6eb7fbb7b2eb79f194a90a2cd4f31913e47b336
+    genesis_time: 1718967660
+
+simulator:
+  url: "http://5.161.110.21:8547"
+
+beacon_clients:
+  - url: "http://5.161.110.21:4000"
+  - url: "http://5.161.110.21:4001"
+
+builders:
+  # Reference: https://github.com/chainbound/bolt-builder/blob/main/cmd/utils/flags.go#L691-L691
+  - pub_key: "aa1488eae4b06a1fff840a2b6db167afc520758dc2c8af0dfb57037954df3431b747e2f900fe8805f05d635e9a29717b"
+    builder_info:
+      collateral: "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+      is_optimistic: false
+      builder_id: "Bolt Builder"
+
+# Optional settings
+validator_preferences:
+  filtering: "regional"
+  header_delay: true
+
+router_config:
+  enabled_routes: []  # Empty array enables all routes by default
+
+website:
+  enabled: true
+  port: 8080
+  listen_address: "0.0.0.0"
+  network_name: "helder"
+  relay_url: http://0xaa58208899c6105603b74396734a6263cc7d947f444f396a90f7b7d3e65d102aec7e5e5291b27e08d02c50a050825c2f@5.161.110.21:4040
+  relay_pubkey: 0xaa58208899c6105603b74396734a6263cc7d947f444f396a90f7b7d3e65d102aec7e5e5291b27e08d02c50a050825c2f
